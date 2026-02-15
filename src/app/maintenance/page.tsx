@@ -1,6 +1,15 @@
-import React from 'react';
+
+"use client";
+
+import React, { useState, useEffect } from 'react';
 
 export default function MaintenancePage() {
+  const [year, setYear] = useState<number | null>(null);
+
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
+
   return (
     <div className="min-h-screen bg-black flex items-center justify-center p-6 relative overflow-hidden">
       
@@ -14,7 +23,7 @@ export default function MaintenancePage() {
           }}
         />
         
-        {/* Optional: Subtle ambient static glow so the center is never pitch black */}
+        {/* Subtle ambient static glow */}
         <div className="absolute inset-0 bg-blue-900/5" />
       </div>
 
@@ -56,7 +65,7 @@ export default function MaintenancePage() {
         </div>
 
         <footer className="mt-12 text-[10px] text-slate-500 uppercase tracking-[0.2em]">
-          &copy; {new Date().getFullYear()} Akein Dilkith
+          &copy; {year ?? '2025'} Akein Dilkith
         </footer>
       </div>
     </div>

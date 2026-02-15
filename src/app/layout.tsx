@@ -1,7 +1,7 @@
 
 import type { Metadata } from 'next';
 import './globals.css';
-import { Navbar } from '@/components/layout/Navbar';
+import { PageChrome } from '@/components/layout/PageChrome';
 
 export const metadata: Metadata = {
   title: "Akein Dilkith",
@@ -21,13 +21,9 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased min-h-screen">
-        <Navbar />
-        <main className="mx-auto max-w-2xl px-4 py-12">
+        <PageChrome>
           {children}
-        </main>
-        <footer className="mt-auto border-t border-primary/5 py-12 text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} Akein's Ink. Built for the future.</p>
-        </footer>
+        </PageChrome>
       </body>
     </html>
   );
