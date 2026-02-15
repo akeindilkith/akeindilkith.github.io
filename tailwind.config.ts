@@ -59,6 +59,7 @@ export default {
       animation: {
         'spin-slow': 'spin 10s linear infinite',
         'ball-screen-move': 'ball-bounce 25s linear infinite',
+        'float': 'float 4s ease-in-out infinite',
       },
       keyframes: {
         'ball-bounce': {
@@ -68,6 +69,10 @@ export default {
           '60%': { top: '100%', left: '20%', transform: 'translate(-50%, -50%)' },
           '80%': { top: '40%', left: '0%', transform: 'translate(-50%, -50%)' },
           '100%': { top: '0%', left: '0%', transform: 'translate(-50%, -50%)' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-15px)' },
         }
       }
     },
