@@ -4,7 +4,7 @@ import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 
 export const metadata: Metadata = {
-  title: "Akein's Ink | Modern Blog",
+  title: "Akein Dilkith",
   description: 'A minimalist blog by Akein Dikith exploring AI and design.',
 };
 
