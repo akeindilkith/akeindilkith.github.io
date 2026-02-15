@@ -1,14 +1,18 @@
+
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  async redirects() {
-    return [
-      {
-        source: '/',
-        destination: '/maintenance', // Matches your folder name in the screenshot
-        permanent: false, // Use false so search engines know this is temporary
-      },
-    ];
+  /* 
+   * 'export' mode is required for GitHub Pages. 
+   * Note: This disables Server Actions and standard Next.js redirects.
+   */
+  output: 'export',
+  images: {
+    /* 
+     * GitHub Pages doesn't support the default Next.js Image Optimization API.
+     * We must disable it or use a custom loader.
+     */
+    unoptimized: true,
   },
 };
 

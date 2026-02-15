@@ -7,9 +7,21 @@ import Link from 'next/link';
 import { ChevronLeft, Calendar, Tag } from 'lucide-react';
 import { BLOG_POSTS } from '@/lib/blog-data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import React from 'react';
+
+/**
+ * For static exports, we must tell Next.js which paths to pre-render
+ * at build time for dynamic segments like [slug].
+ */
+export async function generateStaticParams() {
+  return BLOG_POSTS.map((post) => ({
+    slug: post.slug,
+  }));
+}
 
 export default function PostDetails() {
-  const { slug } = useParams();
+  const params = useParams();
+  const slug = params?.slug as string;
   const router = useRouter();
   const post = BLOG_POSTS.find(p => p.slug === slug);
 
