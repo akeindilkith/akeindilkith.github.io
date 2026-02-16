@@ -1,4 +1,3 @@
-
 "use client";
 
 import { usePathname } from 'next/navigation';
@@ -7,9 +6,11 @@ import { Footer } from './Footer';
 
 export function PageChrome({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const isMaintenance = pathname === '/maintenance';
+  // We check if the root is current, as we moved maintenance to root
+  // For now, let's assume we want to hide Chrome on the main landing page
+  const isLanding = pathname === '/';
 
-  if (isMaintenance) {
+  if (isLanding) {
     return <>{children}</>;
   }
 

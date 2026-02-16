@@ -1,14 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  async redirects() {
-    return [
-      {
-        source: '/',
-        destination: '/maintenance', // Matches your folder name in the screenshot
-        permanent: false, // Use false so search engines know this is temporary
-      },
-    ];
+  // Enable static export for GitHub Pages
+  output: 'export',
+  // Required for static export as GitHub Pages doesn't have an image optimization server
+  images: {
+    unoptimized: true,
   },
 };
 
