@@ -1,7 +1,4 @@
 
-"use client";
-
-import { useParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronLeft, Calendar, Tag } from 'lucide-react';
@@ -19,10 +16,12 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function PostDetails() {
-  const params = useParams();
-  const slug = params?.slug as string;
-  const router = useRouter();
+export default async function PostDetails({ 
+  params 
+}: { 
+  params: Promise<{ slug: string }> 
+}) {
+  const { slug } = await params;
   const post = BLOG_POSTS.find(p => p.slug === slug);
 
   if (!post) {
@@ -38,13 +37,13 @@ export default function PostDetails() {
 
   return (
     <div className="fade-in space-y-8">
-      <button 
-        onClick={() => router.back()}
-        className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+      <Link 
+        href="/"
+        className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary w-fit"
       >
         <ChevronLeft className="h-4 w-4" />
-        Back to posts
-      </button>
+        Back to home
+      </Link>
 
       <article className="space-y-8">
         <header className="space-y-4">
