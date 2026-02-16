@@ -7,9 +7,11 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  // If your repo name is NOT your username (e.g. username.github.io/repo-name), 
-  // you would need to add basePath: '/repo-name' here.
-  // Since you are using akeindilkith.github.io, we keep it as default.
+  // Since the repository name is 'akeindilkithnew', we must specify the basePath
+  // so that assets (JS, CSS, Images) are correctly routed.
+  basePath: '/akeindilkithnew',
+  // assetPrefix is also required for static exports on GitHub Pages sub-paths
+  assetPrefix: '/akeindilkithnew',
 };
 
 export default nextConfig;

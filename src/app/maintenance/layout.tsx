@@ -1,17 +1,2 @@
-
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: 'Akein Dilkith',
-  description: 'Under Maintenance',
-}
-
-export default function MaintenanceLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  // Nested layouts should not include <html> or <body> tags.
-  // They inherit them from the root layout.
-  return <>{children}</>;
-}
+// This file is being removed as its content is handled by the root layout.
+export default function Removed({ children }: { children: React.ReactNode }) { return <>{children}</>; }
