@@ -1,5 +1,13 @@
 import type { NextConfig } from "next";
 
+/**
+ * CONFIGURATION FOR GITHUB PAGES
+ * 
+ * If you change your repository name, update the 'repoName' variable below.
+ * If you are using a custom domain (e.g., www.yourdomain.com), set repoName to ''.
+ */
+const repoName = '/akeindilkithnew';
+
 const nextConfig: NextConfig = {
   // Enable static export for GitHub Pages
   output: 'export',
@@ -7,11 +15,10 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  // Since the repository name is 'akeindilkithnew', we must specify the basePath
-  // so that assets (JS, CSS, Images) are correctly routed.
-  basePath: '/akeindilkithnew',
-  // assetPrefix is also required for static exports on GitHub Pages sub-paths
-  assetPrefix: '/akeindilkithnew',
+  // Set the base path to match your repository name
+  basePath: repoName,
+  // Ensure assets are prefixed correctly for sub-path deployment
+  assetPrefix: repoName,
 };
 
 export default nextConfig;
